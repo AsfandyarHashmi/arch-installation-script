@@ -19,10 +19,6 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
-# AUR setup (yay)
-git clone https://aur.archlinux.org/yay.git
-(cd yay && makepkg -si)
-
 # Network setup
 pacman -S --noconfirm dhcpcd 
 systemctl enable dhcpcd
