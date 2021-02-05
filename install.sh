@@ -5,12 +5,12 @@
 # pacstrap /mnt base base-devel linux linux-firmware
 # genfstab -U -p /mnt >> /mnt/etc/fstab
 
-arch-chroot /mnt
-
 pacman -Syyu --noconfirm
 
+# Set hostname
 echo 'omen' > /etc/hostname
 
+# Region and language setup
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.conf
 locale-gen
 export LANG=en_US.UTF-8
