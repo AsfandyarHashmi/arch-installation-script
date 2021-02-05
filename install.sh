@@ -14,7 +14,7 @@ echo 'omen' > /etc/hostname
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.conf
 locale-gen
 export LANG=en_US.UTF-8
-localectl set-keymap --no-convert de
+echo 'KEYMAP=de' >> /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
