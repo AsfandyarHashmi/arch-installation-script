@@ -1,6 +1,9 @@
 #!/bin/bash
-pacstrap /mnt base base-devel linux linux-firmware
-genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Installation Help
+# cfdisk /dev/<device>
+# pacstrap /mnt base base-devel linux linux-firmware
+# genfstab -U -p /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
 
@@ -16,15 +19,24 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
-pacman -S --noconfirm vim tlp dhcpcd iwd git sudo firefox mpv
-
-systemctl enable dhcpcd
-systemctl enable iwd
-systemctl enable tlp
-
+# AUR setup (yay)
 git clone https://aur.archlinux.org/yay.git
 (cd yay && makepkg -si)
 
+# Network setup
+pacman -S --noconfirm dhcpcd 
+systemctl enable dhcpcd
+systemctl enable iwd
+
+# Install hardware tools
+pacman -S --noconfirm tlp
+systemctl enable tlp
+
+# Install misc. tools
+pacman -S --noconfirm vim git
+
+# User setup
+pacman -S --noconfirm sudo
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
