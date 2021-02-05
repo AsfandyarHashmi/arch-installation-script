@@ -36,6 +36,7 @@ pacman -S --noconfirm sudo
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
+# Setup complete
 echo 'Arch installation and setup complete!'
 echo 'Please make sure to:'
 echo '1. arch-chroot /mnt and change passwords for root and your user using passwd.'
