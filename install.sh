@@ -16,7 +16,7 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
-pacman -S --noconfirm vim tlp dhcpcd iwd git sudo firefox
+pacman -S --noconfirm vim tlp dhcpcd iwd git sudo firefox mpv
 
 systemctl enable dhcpcd
 systemctl enable iwd
