@@ -13,7 +13,7 @@ echo 'omen' > /etc/hostname
 # Region and language setup
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
-echo 'LANG=en_US.UTF-8 UTF-8' >> /etc/locale.conf
+echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
