@@ -20,7 +20,7 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Network setup
-pacman -S --noconfirm dhcpcd 
+pacman -S --noconfirm dhcpcd iwd
 systemctl enable dhcpcd
 systemctl enable iwd
 
@@ -28,8 +28,8 @@ systemctl enable iwd
 pacman -S --noconfirm tlp
 systemctl enable tlp
 
-# Install misc. tools
-pacman -S --noconfirm vim git
+# Install text editor
+pacman -S --noconfirm vim
 
 # User setup
 pacman -S --noconfirm sudo
