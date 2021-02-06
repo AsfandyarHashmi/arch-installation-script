@@ -20,25 +20,26 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
+# Install required packages
+pacman -S --noconfirm dhcpcd iwd tlp vim sudo
+
 # Network setup
-pacman -S --noconfirm dhcpcd iwd
 systemctl enable dhcpcd
 systemctl enable iwd
 
-# Install hardware tools
-pacman -S --noconfirm tlp
+# Enable tlp
 systemctl enable tlp
 
-# Install text editor
-pacman -S --noconfirm vim
-
 # User setup
-pacman -S --noconfirm sudo
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 # Setup complete
+echo ''
+echo '*****************************************************************************'
 echo 'Arch installation and setup complete!'
 echo 'Please make sure to:'
-echo '1. arch-chroot /mnt and change passwords for root and your user using passwd.'
-echo '2. Install bootloader.'
+echo '1. Change passwords for root and your user using passwd.'
+echo '2. Install bootloader. (e.g. For rEFInd, refind-install --use-default /dev/<boot>)'
+echo '*****************************************************************************'
+echo ''
