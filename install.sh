@@ -44,6 +44,6 @@ echo '**************************************************************************
 echo 'Arch installation and setup complete!'
 echo 'Please make sure to:'
 echo '1. Change passwords for root and your user using passwd.'
-echo '2. Install bootloader. (e.g. For rEFInd, refind-install --use-default /dev/<boot>)'
+echo '2. Install bootloader. (e.g. For rEFInd, refind-install --usedefault /dev/<boot>)'
 echo '*****************************************************************************'
 echo ''
