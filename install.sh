@@ -21,12 +21,11 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf
+pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind
 
 # Sound setup
 alsactl store
-echo "options snd_hda_instal index=1" >> /etc/modprobe.d/default.conf
-
+cp modprobe.d /etc/modprobe.d
 
 # Network setup
 systemctl enable dhcpcd
