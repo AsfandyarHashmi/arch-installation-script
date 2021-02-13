@@ -5,7 +5,7 @@ sudo pacman -Syyu --noconfirm
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -si
+cd yay && makepkg -si --noconfirm
 
 # Install required packages
 sudo pacman -S --noconfirm bspwm sxhkd alacritty rofi xorg-xinit feh
