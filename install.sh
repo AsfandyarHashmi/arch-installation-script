@@ -21,7 +21,7 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk
+pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk pulseaudio
 
 # Sound setup
 alsactl store
