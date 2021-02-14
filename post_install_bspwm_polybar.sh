@@ -8,10 +8,10 @@ git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si --noconfirm
 
 # Install required packages
-sudo pacman -S --noconfirm bspwm sxhkd alacritty rofi xorg-xinit feh mpv
+sudo pacman -S --noconfirm bspwm sxhkd alacritty rofi xorg-xinit feh mpv firefox
 
 # Install required packages (yay)
-yay -S --noconfirm polybar ungoogled-chromium
+yay -S --noconfirm polybar
 
 mkdir -p ~/.config/bspwm
 mkdir -p ~/.config/sxhkd
