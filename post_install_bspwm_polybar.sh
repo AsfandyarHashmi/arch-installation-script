@@ -24,16 +24,16 @@ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Set background
 mkdir -p ~/Pictures/Wallpapers
-cp ./images/bg.jpg ~/Pictures/Wallpapers/bg.jpg
+cp images/bg.jpg ~/Pictures/Wallpapers/bg.jpg
 feh --bg-scale ~/Pictures/Wallpapers/bg.jpg
 echo "~/.fehbg &" >> ~/.xinitrc
 
 # bspwm setup
 echo "exec bspwm" >> ~/.xinitrc
-cat ./bspwm/volume-and-brightness-keys-snippet >> ~/.config/sxhkd/sxhkdrc
+cat bspwm/volume-and-brightness-keys-snippet >> ~/.config/sxhkd/sxhkdrc
 
 # Polybar setup
 cp /usr/share/doc/polybar/config ~/.config/polybar/
-cp ./polybar/launch.sh ~/.config/polybar/
+cp polybar/launch.sh ~/.config/polybar/
 chmod +x ~/.config/polybar/launch.sh
 echo "$HOME/.config/polybar/launch.sh" >> ~/.config/bspwm/bspwmrc
