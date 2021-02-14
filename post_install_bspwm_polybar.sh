@@ -6,9 +6,10 @@ sudo pacman -Syyu --noconfirm
 # Install yay
 git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si --noconfirm
+cd ..
 
 # Install required packages
-sudo pacman -S --noconfirm bspwm sxhkd alacritty rofi xorg-xinit feh mpv firefox
+sudo pacman -S --noconfirm bspwm sxhkd alacritty rofi xorg-xinit feh mpv firefox xorg
 
 # Install required packages (yay)
 yay -S --noconfirm polybar
