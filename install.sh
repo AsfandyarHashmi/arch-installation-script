@@ -12,38 +12,45 @@ echo 'omen' > /etc/hostname
 
 # Region and language setup
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+echo 'de_DE.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
-ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+#ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk pulseaudio
+# pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk pulseaudio
+pacman -S --noconfirm dhcpcd vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk xorg nvidia
+pacman -S gnome
+pacman -S --noconfirm mpv obs-studio gimp code chromium vagrant virtualbox deluge
 
 # Sound setup
 alsactl store
 echo "options snd-hda-intel index=1,0" >> /etc/modprobe.d/alsa-base.conf
 
-# Network setup
+# Enable services
 systemctl enable dhcpcd
-systemctl enable iwd
-
-# Enable tlp
+systemctl enable NetworkManager
 systemctl enable tlp
+systemctl enable gdm
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
+# Change passwords
+echo "Change password for root:"
+passwd
+echo "Change password for asf:"
+passwd asf
+
 # Setup complete
 echo ''
 echo '*****************************************************************************'
 echo 'Arch installation and setup complete!'
-echo 'Please make sure to:'
-echo '1. Change passwords for root and your user using passwd.'
-echo '2. Install bootloader. (e.g. For rEFInd, refind-install --usedefault /dev/<boot>)'
+echo 'Please install bootloader. (e.g. For rEFInd, refind-install --usedefault /dev/<boot>)'
 echo '*****************************************************************************'
 echo ''
