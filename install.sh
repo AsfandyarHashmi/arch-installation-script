@@ -25,7 +25,7 @@ pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmw
 
 # Sound setup
 alsactl store
-cp modprobe.d/* /etc/modprobe.d
+echo "options snd-hda-intel index=1,0" >> /etc/modprobe.d/alsa-base.conf
 
 # Network setup
 systemctl enable dhcpcd
