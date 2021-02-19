@@ -2,7 +2,7 @@
 
 # Installation Help
 # cfdisk /dev/<device>
-# pacstrap /mnt base base-devel linux linux-firmware
+# pacstrap /mnt base base-devel linux linux-firmware vim git
 # genfstab -U -p /mnt >> /mnt/etc/fstab
 
 pacman -Syyu --noconfirm
@@ -17,15 +17,13 @@ locale-gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
-#ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-# pacman -S --noconfirm dhcpcd iwd tlp vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk pulseaudio
-pacman -S --noconfirm dhcpcd vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf refind gdisk xorg nvidia
-pacman -S gnome
-pacman -S --noconfirm mpv obs-studio gimp code chromium vagrant virtualbox deluge
+pacman -S --noconfirm dhcpcd iwd tlp tlp-rdw vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio refind gdisk
+# pacman -S --noconfirm mpv obs-studio gimp code chromium vagrant virtualbox deluge
 
 # Sound setup
 alsactl store
@@ -33,9 +31,8 @@ echo "options snd-hda-intel index=1,0" >> /etc/modprobe.d/alsa-base.conf
 
 # Enable services
 systemctl enable dhcpcd
-systemctl enable NetworkManager
+systemctl enable iwd
 systemctl enable tlp
-systemctl enable gdm
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
