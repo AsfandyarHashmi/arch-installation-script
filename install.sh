@@ -22,7 +22,7 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd iwd tlp tlp-rdw vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio refind gdisk
+pacman -S --noconfirm dhcpcd iwd tlp tlp-rdw vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk
 # pacman -S --noconfirm mpv obs-studio gimp code chromium vagrant virtualbox deluge
 
 # Sound setup
