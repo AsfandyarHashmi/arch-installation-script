@@ -25,7 +25,7 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 pacman -S --noconfirm dhcpcd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk networkmanager gnome gnome-tweaks
 
 # Debloat gnome
-pacman -R gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnome-calendar epiphany gnome-books gnome-documents gnome-clocks gnome-maps
+pacman -R gedit gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnome-calendar epiphany gnome-books gnome-documents gnome-clocks gnome-maps
 
 # Hide unsavory icons
 echo "NoDisplay=true" >> /usr/share/applications/avahi-discover.desktop
