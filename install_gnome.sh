@@ -27,6 +27,10 @@ pacman -S --noconfirm dhcpcd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmw
 # Debloat gnome
 pacman -R gedit gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnome-calendar epiphany gnome-books gnome-documents gnome-clocks gnome-maps
 
+# Enable AUR
+git clone https://aur.archlinux.org/yay.git
+cd yay && makepkg -si --noconfirm
+
 # Hide unsavory icons
 echo "NoDisplay=true" >> /usr/share/applications/avahi-discover.desktop
 echo "NoDisplay=true" >> /usr/share/applications/bssh.desktop
