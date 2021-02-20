@@ -22,8 +22,18 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd iwd tlp tlp-rdw vim sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk
-# pacman -S --noconfirm mpv obs-studio gimp code chromium vagrant virtualbox deluge
+pacman -S --noconfirm dhcpcd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk networkmanager gnome gnome-tweaks
+
+# Debloat gnome
+pacman -R gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnome-calendar epiphany gnome-books gnome-documents gnome-clocks gnome-maps
+
+# Hide unsavory icons
+echo "NoDisplay=true" >> /usr/share/applications/avahi-discover.desktop
+echo "NoDisplay=true" >> /usr/share/applications/bssh.desktop
+echo "NoDisplay=true" >> /usr/share/applications/bvnc.desktop
+echo "NoDisplay=true" >> /usr/share/applications/qv4l2.desktop
+echo "NoDisplay=true" >> /usr/share/applications/qvidcap.desktop
+echo "NoDisplay=true" >> /usr/share/applications/lstopo.desktop
 
 # Sound setup
 alsactl store
@@ -31,8 +41,10 @@ echo "options snd-hda-intel index=1,0" >> /etc/modprobe.d/alsa-base.conf
 
 # Enable services
 systemctl enable dhcpcd
-systemctl enable iwd
+systemctl enable NetworkManager.service
 systemctl enable tlp
+systemctl enable gdm
+systemctl enable avahi-daemon.service
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
