@@ -22,7 +22,7 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -S --noconfirm dhcpcd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk networkmanager gnome gnome-tweaks firefox mpv code ntfs-3g gnome-passwordsafe chrome-gnome-shell papirus-icon-theme materia-gtk-theme
+pacman -S --noconfirm dhcpcd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk networkmanager gnome gnome-tweaks firefox mpv code ntfs-3g gnome-passwordsafe chrome-gnome-shell papirus-icon-theme
 
 # Debloat gnome
 pacman -R gedit gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnome-calendar epiphany gnome-books gnome-documents gnome-clocks gnome-maps gnome-software
