@@ -8,4 +8,3 @@ pacman -R gedit gnome-boxes gnome-weather gnome-photos totem gnome-contacts gnom
 systemctl disable iwd
 systemctl enable NetworkManager.service
 systemctl enable gdm
-systemctl enable avahi-daemon.service

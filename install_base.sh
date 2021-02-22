@@ -20,7 +20,8 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo vim alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf pulseaudio pulseaudio-alsa refind gdisk ntfs-3g
+pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo vim alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
+pulseaudio pulseaudio-alsa refind gdisk udisks2 ntfs-3g cups cups-pdf avahi nss-mdns
 
 # Enable AUR
 git clone https://aur.archlinux.org/yay.git
@@ -30,6 +31,8 @@ cd yay && makepkg -si --noconfirm
 systemctl enable dhcpcd
 systemctl enable iwd
 systemctl enable tlp
+systemctl enable cups
+systemctl enable avahi-daemon.service
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash asf
