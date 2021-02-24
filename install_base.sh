@@ -20,12 +20,8 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo vim alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
+pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
 pulseaudio pulseaudio-alsa refind gdisk udisks2 ntfs-3g cups cups-pdf avahi nss-mdns
-
-# Enable AUR
-git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -si --noconfirm
 
 # Enable services
 systemctl enable dhcpcd
