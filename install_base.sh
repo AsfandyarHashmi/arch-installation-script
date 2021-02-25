@@ -21,7 +21,7 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
 pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
-pulseaudio pulseaudio-alsa refind gdisk udisks2 ntfs-3g cups cups-pdf avahi nss-mdns
+pulseaudio pulseaudio-alsa refind gdisk udisks2 ntfs-3g cups cups-pdf avahi nss-mdns gvfs scrot
 
 # Enable services
 systemctl enable dhcpcd
