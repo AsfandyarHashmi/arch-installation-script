@@ -6,7 +6,7 @@
 # genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Set hostname
-echo 'omen' > /etc/hostname
+echo 'maverick' > /etc/hostname
 
 # Region and language setup
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
@@ -17,28 +17,25 @@ export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
-timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Install required packages
 pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
-pulseaudio pulseaudio-alsa refind gdisk udisks2 ntfs-3g cups cups-pdf avahi nss-mdns gvfs scrot mtpfs
+amd-ucode refind gdisk udisks2 ntfs-3g gvfs
 
 # Enable services
 systemctl enable dhcpcd
 systemctl enable iwd
 systemctl enable tlp
-systemctl enable cups
-systemctl enable avahi-daemon.service
 
 # User setup
-useradd -mg users -G wheel,storage,power -s /bin/bash asf
+useradd -mg users -G wheel,storage,power -s /bin/bash zero
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 # Change passwords
 echo "Change password for root:"
 passwd
-echo "Change password for asf:"
-passwd asf
+echo "Change password for zero:"
+passwd zero
 
 # Setup complete
 echo ''
