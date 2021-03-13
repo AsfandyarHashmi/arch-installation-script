@@ -22,6 +22,12 @@ hwclock --systohc --utc
 pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo alsa-utils alsa-plugins alsa-firmware sof-firmware alsa-ucm-conf \
 amd-ucode refind gdisk udisks2 ntfs-3g gvfs
 
+# Audio setup
+echo "defaults.pcm.card 1" >> /etc/asound.conf
+echo "defaults.ctl.card 1" >> /etc/asound.conf
+amixer set Master unmute
+alsactl store
+
 # Enable services
 systemctl enable dhcpcd
 systemctl enable iwd
