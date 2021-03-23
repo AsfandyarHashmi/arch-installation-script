@@ -19,12 +19,10 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd iwd tlp tlp-rdw sudo \
-amd-ucode
+pacman -Syyu --noconfirm dhcpcd sudo amd-ucode
 
 # Enable services
 systemctl enable dhcpcd
-systemctl enable iwd
 systemctl enable tlp
 
 # User setup
