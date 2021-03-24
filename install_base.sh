@@ -19,13 +19,10 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd sudo amd-ucode cups tlp tlp-rdw networkmanager ntfs-3g
+pacman -Syyu --noconfirm dhcpcd sudo amd-ucode ntfs-3g
 
 # Enable services
 systemctl enable dhcpcd
-systemctl enable cups
-systemctl enable NetworkManager
-systemctl enable tlp
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash zero
