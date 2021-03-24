@@ -24,6 +24,7 @@ pacman -Syyu --noconfirm dhcpcd sudo amd-ucode cups tlp tlp-rdw
 # Enable services
 systemctl enable dhcpcd
 systemctl enable cups
+systemctl enable NetworkManager
 systemctl enable tlp
 
 # User setup
