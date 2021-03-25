@@ -19,7 +19,7 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp tlp-rdw avahi iwd bluez bluez-utils brightnessctl
+pacman -Syyu --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp tlp-rdw avahi iwd bluez bluez-utils brightnessctl udisks2
 
 # Enable services
 systemctl enable dhcpcd
