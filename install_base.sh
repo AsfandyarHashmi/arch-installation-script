@@ -30,7 +30,7 @@ reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyu --noconfirm
 pacman -S --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp \
     alsa-utils avahi bluez bluez-utils networkmanager openssh \
-    zsh zsh-completions refind mpv
+    zsh zsh-completions refind mpv iwd
 
 # Enable services
 systemctl enable dhcpcd
