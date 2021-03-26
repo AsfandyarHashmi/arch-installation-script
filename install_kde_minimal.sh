@@ -1,15 +1,15 @@
 #!/bin/bash
 
-pacman -Syyu --noconfirm
+sudo pacman -Syyu --noconfirm
 
-pacman -S --noconfirm xorg nvidia
-pacman -S --noconfirm kscreen sddm-kcm sddm plasma-nm plasma-pa \
+sudo pacman -S --noconfirm xorg nvidia
+sudo pacman -S --noconfirm kscreen sddm-kcm sddm plasma-nm plasma-pa \
     dolphin konsole kdeplasma-addons spectacle mpv nomacs ark \
     partitionmanager kcalc bluedevil powerdevil qbittorrent \
     print-manager system-config-printer breeze-gtk kde-gtk-config \
     keepassxc libnotify xclip kdegraphics-thumbnailers ffmpegthumbs
 
-systemctl enable sddm 
+sudo systemctl enable sddm 
 
 mkdir ~/Downloads
 mkdir -p ~/Torrents/Downloading
@@ -19,6 +19,6 @@ mkdir ~/Work
 mkdir ~/Projects
 mkdir ~/University
 
-cp templates/etc_font_local.conf /etc/fonts/local.conf
+sudo cp templates/etc_font_local.conf /etc/fonts/local.conf
 cp templates/Xresources ~/.Xresources
 xrdb -merge ~/.Xresources
