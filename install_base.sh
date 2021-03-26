@@ -20,7 +20,7 @@ hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Speed up makepkg
-sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g'
+sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
 
 # Update mirrors
 pacman -S --noconfirm reflector
