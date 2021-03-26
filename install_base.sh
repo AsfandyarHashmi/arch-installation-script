@@ -17,17 +17,25 @@ export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+# Update mirrors
+pacman -S --noconfirm reflector
+reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp tlp-rdw avahi iwd bluez bluez-utils brightnessctl
+pacman -Syyu --noconfirm
+pacman -S --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp \
+    alsa-utils avahi bluez bluez-utils networkmanager openssh \
+    zsh zsh-completions refind mpv
 
 # Enable services
 systemctl enable dhcpcd
 systemctl enable tlp
 systemctl enable cups
 systemctl enable avahi-daemon
-systemctl enable iwd
 systemctl enable bluetooth
+systemctl enable NetworkManager
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash zero
@@ -40,9 +48,4 @@ echo "Change password for zero:"
 passwd zero
 
 # Setup complete
-echo ''
-echo '*****************************************************************************'
-echo 'Arch installation and setup complete!'
-echo 'Please install bootloader. (e.g. For rEFInd, refind-install --usedefault /dev/<boot>)'
-echo '*****************************************************************************'
-echo ''
+echo 'Arch installation and setup complete! Please install bootloader.'
