@@ -19,6 +19,9 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 timedatectl set-local-rtc 1 --adjust-system-clock
 
+# Speed up makepkg
+sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g'
+
 # Update mirrors
 pacman -S --noconfirm reflector
 reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
