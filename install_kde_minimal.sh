@@ -3,7 +3,7 @@
 sudo pacman -Syyu --noconfirm
 
 sudo pacman -S --noconfirm xorg nvidia
-sudo pacman -S --noconfirm kscreen sddm-kcm sddm plasma-nm plasma-pa \
+sudo pacman -S --noconfirm plasma-desktop kscreen sddm-kcm sddm plasma-nm plasma-pa \
     dolphin konsole kdeplasma-addons spectacle mpv nomacs ark \
     partitionmanager kcalc bluedevil powerdevil qbittorrent \
     print-manager system-config-printer breeze-gtk kde-gtk-config \
