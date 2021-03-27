@@ -30,7 +30,7 @@ reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyu --noconfirm
 pacman -S --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp \
     alsa-utils avahi bluez bluez-utils networkmanager openssh \
-    zsh zsh-completions refind mpv iwd
+    zsh zsh-completions refind mpv iwd brightnessctl gvfs
 
 # Enable services
 systemctl enable dhcpcd
@@ -39,6 +39,7 @@ systemctl enable cups
 systemctl enable avahi-daemon
 systemctl enable bluetooth
 systemctl enable NetworkManager
+systemctl enable iwd
 
 # User setup
 useradd -mg users -G wheel,storage,power -s /bin/bash zero
