@@ -8,7 +8,7 @@ sudo pacman -S --noconfirm plasma-desktop kscreen sddm-kcm sddm plasma-nm plasma
     partitionmanager kcalc bluedevil powerdevil qbittorrent \
     print-manager system-config-printer breeze-gtk kde-gtk-config \
     keepassxc libnotify xclip kdegraphics-thumbnailers ffmpegthumbs \
-    cups bluez bluez-utils avahi networkmanager tlp code
+    cups bluez bluez-utils avahi networkmanager tlp code ntfs-3g
 
 sudo systemctl enable sddm 
 sudo systemctl enable cups
