@@ -23,11 +23,11 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
 
 # Update mirrors
-pacman -Syyu --noconfirm reflector
-reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+#pacman -Syyu --noconfirm reflector
+#reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd sudo amd-ucode iwd
+pacman -Syyu --noconfirm dhcpcd sudo amd-ucode iwd ntfs-3g
 #pacman -S --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp \
 #    alsa-utils avahi bluez bluez-utils networkmanager openssh \
 #    zsh zsh-completions refind mpv iwd brightnessctl gvfs
