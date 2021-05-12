@@ -17,7 +17,7 @@ export LANG=en_US.UTF-8
 echo 'KEYMAP=de' >> /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
-timedatectl set-local-rtc 1 --adjust-system-clock
+#timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Speed up makepkg
 sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
@@ -27,18 +27,17 @@ sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
 #reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 # Install required packages
-pacman -Syyu --noconfirm dhcpcd sudo amd-ucode iwd ntfs-3g
-#pacman -S --noconfirm dhcpcd sudo amd-ucode ntfs-3g udisks2 cups tlp \
-#    alsa-utils avahi bluez bluez-utils networkmanager openssh \
-#    zsh zsh-completions refind mpv iwd brightnessctl gvfs
+pacman -Syyu --noconfirm dhcpcd sudo amd-ucode iwd ntfs-3g \
+udisks2 cups tlp alsa-utils avahi bluez bluez-utils networkmanager openssh \
+zsh zsh-completions gvfs
 
 # Enable services
 systemctl enable dhcpcd
-#systemctl enable tlp
-#systemctl enable cups
-#systemctl enable avahi-daemon
-#systemctl enable bluetooth
-#systemctl enable NetworkManager
+systemctl enable tlp
+systemctl enable cups
+systemctl enable avahi-daemon
+systemctl enable bluetooth
+systemctl enable NetworkManager
 systemctl enable iwd
 
 # User setup
